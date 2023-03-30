@@ -1,11 +1,14 @@
 # Overfitting 발생시 해결 방법
  - 학습된 모델이 Train Data에만 최적화 된 상태
  - 과적합 발생시 validation 의 loss가 줄다가 다시 상승곡선을 그리게 된다.
+<br>
 
-  <b>1) Train Data를 추가 해준다.</b>
+<b>1) Train Data를 추가 해준다.</b>
   - 추가로 데이터를 수집해야해서 현실적으로 어려움
 
-  <b>2) 성능을 낮추지 않는 선에서 Model의 Capacity를 낮게 조절해준다.</b>
+<br>
+
+<b>2) 성능을 낮추지 않는 선에서 Model의 Capacity를 낮게 조절해준다.</b>
       
 - 파라미터 개수 : 모델의 파라미터의 개수를 줄임 <br>
         방법 1. 노드의 개수를 줄이기 <br>
@@ -23,17 +26,18 @@
     (가중치가 0 에 가까워지면 해당 항의 영향도가 낮아지는거니까)
     - 릿지와 라쏘는 각각 독립적으로 적용 가능하며 동시에 적용시 엘라스틱넷이라고 부른다.
 
+<br>
+<b> 3) Dropout </b>
 
-     -  Dropout
-          - 학습과정에서 네트워크의 일부 연결을 무작위로 제외시킴
-          - Model.add (laters.Dropout(0.4)) 
-          - 괄호 안의 숫자는 랜덤으로 끊어지는 네트워크 비중의미 (40%)
+  - 학습과정에서 네트워크의 일부 연결을 무작위로 제외시킴
+  - Model.add (laters.Dropout(0.4)) 
+  - 괄호 안의 숫자는 랜덤으로 끊어지는 네트워크 비중의미 (40%)
      
     
-
-<b> 3) Batch normalization [statistics] </b>
- - 성능개선을 위한 방안이지만, side_effect로 오버피팅을 줄이는 효과도 발생됨.
-
+<br>
+<b> 4) Batch normalization [statistics] </b>
+ 
+ - 성능개선을 위한 방안이지만, side_effect로 오버피팅을 줄이는 효과도 발생
  - 데이터/ capacity와 상관없지만 성능이 좋다
  -  X data : 정규분포 Normal Distribution
  - 학습 때마다 분포가 바뀜
